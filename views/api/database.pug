@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+  .pb-2.mt-2.mb-4.border-bottom
+    h2
+      i.fas.fa-upload.fa-sm
+      | Garment Database
+
+  h3 Database Entries
+  table.table.table-condensed
+    thead
+      tr
+        th Sample Image
+        th Original Name
+        th Colors Identified
+        th Styles Identified
+        th Garments Identified
+    tbody
+      each doc in docs
+        tr
+          if doc.path
+            td
+              img(src='/' + doc.path style='width:300px;height:400px;')
+          else
+            td= ''
+          td= doc.originalname
+          td= doc.colors
+          td= doc.styles
+          td= doc.garments
